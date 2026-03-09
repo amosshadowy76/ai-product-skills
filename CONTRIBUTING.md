@@ -1,10 +1,10 @@
 # Contributing
 
-Thanks for contributing to `codex-product-skills`.
+Thanks for contributing to `ai-product-skills`.
 
 ## What This Repo Accepts
 
-This repository is for reusable Codex skills, templates, and supporting docs related to:
+This repository is for reusable AI-assistant skills, templates, and supporting docs related to:
 
 - product-rule extraction
 - UI consistency review

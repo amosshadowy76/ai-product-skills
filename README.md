@@ -1,6 +1,6 @@
-# Codex Product Skills
+# AI Product Skills
 
-Reusable product-review and product-rules skills for Codex and other AI coding assistants.
+Reusable product-review and product-rules skills for AI coding assistants, including Codex.
 
 This repository helps teams turn vague product feedback into repeatable methods that AI assistants can reuse across projects.
 

@@ -2,7 +2,7 @@
 
 ## Suggested Repository Description
 
-Reusable Codex skills and templates for product-rule architecture and UI consistency review.
+Reusable AI-assistant skills and templates for product-rule architecture, flow validation, and UI consistency review.
 
 ## Suggested Topics
 
