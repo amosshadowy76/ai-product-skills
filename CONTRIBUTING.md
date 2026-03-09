@@ -37,6 +37,69 @@ When updating a skill:
 - keep core skills project-agnostic
 - put domain-heavy guidance into specialized skills
 
+## Adding A New Skill
+
+Before adding a new skill, answer these questions:
+
+1. Is this really a new reusable method, or should an existing skill be improved?
+2. Is the method generic across many projects, or only useful in one app family?
+3. Is the skill about:
+   - finding problems
+   - validating a flow
+   - extracting rules
+   - something else clearly distinct
+
+Add a new skill only when the method has a clear job that is not already owned by another skill.
+
+## How To Judge Generality
+
+Use this rule:
+
+- if the method works in many product types, keep it generic
+- if the method depends on stable in-product terminology, page-family structure, or domain-specific concepts, make it specialized
+- if the content depends on one specific app, do not hard-code it into the core skill
+
+Good generic content:
+
+- reusable reasoning steps
+- path-based validation method
+- output format
+- decision rules
+
+Bad generic content:
+
+- one company’s internal labels
+- one app’s exact tab names in the main workflow
+- one project’s private business rules
+
+## How To Write Project Customization Sections
+
+If a skill benefits from project-specific examples, keep them separate from the core workflow.
+
+Prefer this shape:
+
+1. core method
+2. customization points
+3. one example project instantiation
+
+That means:
+
+- the main instructions stay reusable
+- project-specific mappings stay easy to replace
+- another team can adopt the skill without rewriting the whole file
+
+Use example headings like:
+
+- `Customization points for each project`
+- `Example project instantiation`
+
+Avoid headings like:
+
+- `MindFlow rules`
+- `App-specific workflow`
+
+unless the repository is intentionally app-specific
+
 ## Recommended Contribution Flow
 
 1. Identify the problem:
@@ -77,4 +140,6 @@ If you add or significantly change a skill, also consider updating:
 
 - `README.md`
 - `docs/SKILL_BOUNDARIES.md`
+- `docs/RULES_AND_SKILLS_README.md`
+- `docs/USAGE_EXAMPLES.md`
 - related templates if the skill changes how rules are organized

@@ -1,96 +1,123 @@
 # Rules and Skills README
 
-## What Is Included
+## Purpose
 
-This repository now contains three related layers:
+This document explains how the repository fits together as a product-method toolkit.
 
-- **Project rules**
-  - `PRODUCT_RULES.md`
-  - `APP_RULES.md`
+Use it when you want to understand:
 
-- **Reusable template**
-  - `APP_RULES_TEMPLATE.md`
+- what belongs in a skill
+- what belongs in a reusable template
+- what belongs in durable project rules
 
-- **Skill drafts**
-  - `SKILL_DRAFTS/app-rules-architect`
-  - `SKILL_DRAFTS/product-ui-consistency-review-core`
+## The Three Layers
 
-- **Installer**
-  - `install_skills.sh`
+This repository now has three complementary layers:
 
-## What Each File Is For
+### 1. Skills
 
-### `PRODUCT_RULES.md`
-- A lighter project-specific rules note.
-- Useful as an early draft or quick reference.
+Reusable operational methods for AI assistants.
 
-### `APP_RULES.md`
-- The main project-specific behavior rules.
-- Use this as the source of truth for interaction decisions in this app.
+Current skills:
 
-### `APP_RULES_TEMPLATE.md`
-- A reusable starting point for other projects.
-- Copy it into a new app and replace placeholders with that app’s structure.
+- `product-ui-consistency-review-core`
+- `product-ui-consistency-review-specialized`
+- `product-flow-validation`
+- `app-rules-architect`
+
+### 2. Templates
+
+Reusable starting documents that teams can copy into projects.
+
+Current template:
+
+- `templates/APP_RULES_TEMPLATE.md`
+
+### 3. Supporting docs
+
+Docs that explain skill boundaries, repository usage, and contribution patterns.
+
+Current docs:
+
+- `docs/SKILL_BOUNDARIES.md`
+- `docs/RULES_AND_SKILLS_README.md`
+- `docs/USAGE_EXAMPLES.md`
 
 ## What Each Skill Does
 
-### `app-rules-architect`
-- Extract repeated product decisions into durable rules.
-- Separate universal principles from app-specific rules.
-- Create or update files like:
-  - `APP_RULES.md`
-  - `APP_RULES_TEMPLATE.md`
-  - `FEATURE_RULES.md`
-  - `PRODUCT_PRINCIPLES.md`
-
 ### `product-ui-consistency-review-core`
-- Review sibling screens and repeated flows for consistency.
-- Check semantic, structural, interaction, and visual drift.
-- Works as a project-agnostic core review skill.
 
-## Recommended Usage Model
+- review sibling screens and repeated UI blocks
+- detect semantic, structural, interaction, and visual drift
+- work as the generic first-pass review method
 
-### In the current project
-- Keep using `APP_RULES.md` as the project-specific rules file.
-- Update it whenever repeated product decisions become stable.
+### `product-ui-consistency-review-specialized`
 
-### In a new project
-- Start from `APP_RULES_TEMPLATE.md`.
-- Copy and rename it to that project’s `APP_RULES.md`.
-- Add feature-specific rule files only when needed.
+- review mature product families using in-domain terminology
+- keep domain meaning intact when generic review would flatten too much
+- act as the domain-aware version of the core review skill
 
-### During design or implementation review
-- Use `product-ui-consistency-review-core` to inspect sibling pages.
-- Use `app-rules-architect` when a local decision should become a durable rule.
+### `product-flow-validation`
 
-## How To Install the Skill Drafts
+- validate that a user choice keeps the same meaning through the full path
+- inspect entry, runtime, persistence, recovery, history, and replay together
+- work best after consistency fixes or state-model changes
 
-Run this from the repository root:
+### `app-rules-architect`
 
-```bash
-bash install_skills.sh
-```
+- turn repeated product decisions into durable rules
+- separate universal principles from app-specific rules
+- help create and maintain files such as `APP_RULES.md` and `FEATURE_RULES.md`
 
-This installs the drafted skills into:
+## Recommended Usage Order
 
-```bash
-${CODEX_HOME:-~/.codex}/skills
-```
+In many projects, the best order is:
 
-After installation:
+1. review related screens with `product-ui-consistency-review-core`
+2. switch to `product-ui-consistency-review-specialized` if domain language matters
+3. validate the end-to-end user path with `product-flow-validation`
+4. promote repeated outcomes into durable rules with `app-rules-architect`
 
-- Restart Codex or Xcode Coding Assistant.
+## What Goes Where
 
-## Recommended Evolution Path
+Use this rule of thumb:
 
-1. Keep refining `APP_RULES.md` inside this project.
-2. Reuse `APP_RULES_TEMPLATE.md` in other apps.
-3. Improve `app-rules-architect` whenever you discover a repeatable rule workflow.
-4. Improve `product-ui-consistency-review-core` whenever you find cross-project review patterns.
-5. Keep project-specific review skills as enhanced layers on top of the core skill.
+- put reusable review or validation method into a skill
+- put a reusable document scaffold into `templates/`
+- put cross-skill explanations into `docs/`
+- put app-specific product behavior into that app’s own rules files, not into this repo’s generic skills
 
-## Practical Rule of Thumb
+## Generic vs Specialized
 
-- If it applies to many apps, put it in a reusable template or core skill.
-- If it depends on this app’s tabs, pages, or flows, keep it in `APP_RULES.md`.
-- If it only matters inside one module, move it to a feature-level rules file.
+Keep content generic when it describes:
+
+- reusable review logic
+- reusable validation steps
+- output formats
+- decision rules
+
+Move content toward specialized when it depends on:
+
+- stable domain terminology
+- product-family-specific repeated blocks
+- domain-specific meanings that generic wording would weaken
+
+Do not mix one project’s concrete terms into the main workflow of a generic skill.
+
+## How This Connects To Rules
+
+Skills help find and validate product issues.
+
+Rules help preserve the decisions after the issues are understood.
+
+Typical flow:
+
+1. Use a review skill to find drift.
+2. Use flow validation to confirm where meaning breaks.
+3. Use `app-rules-architect` when the same decision should stop being rediscovered.
+
+## Installation Note
+
+If you are new to the repository, start from [README.md](../README.md).
+
+That file is the best onboarding entry point.
