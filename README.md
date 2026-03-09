@@ -2,42 +2,25 @@
 
 Reusable product-review and product-rules skills for AI coding assistants, including Codex.
 
-This repository helps teams turn vague product feedback into repeatable methods that AI assistants can reuse across projects.
+This repository helps teams turn vague product feedback into repeatable methods that an assistant can reuse across projects.
 
-It is built for cases like:
+## What This Repo Is For
 
-- reviewing sibling screens without hand-wavy feedback
-- validating whether a fix only looks right or actually survives the full user flow
-- turning repeated UX decisions into durable product rules
+Use this repository when you need to:
 
-## What You Get
+- review related screens for structural, semantic, interaction, or visual drift
+- validate whether a fix survives the full user flow
+- turn repeated UX decisions into durable product rules
 
-If you use this repository well, the practical result is:
+The goal is simple: spend less time re-explaining your review method and get more consistent product reasoning from your assistant.
 
-- clearer product reviews instead of vague comments like “this feels messy”
-- faster detection of semantic drift between entry, runtime, recovery, and history
-- reusable prompts and methods you can carry from one app to another
-- better collaboration with AI assistants because the review method is explicit
-- a path from “we noticed this again” to “this is now a durable product rule”
+## Start Here
 
-In short:
+Most users only need this flow:
 
-This repository helps you get better product decisions out of your AI assistant with less re-explaining every time.
-
-## AI-First Setup
-
-The best setup is no longer:
-
-- manually read every file
-- manually copy folders first
-- manually explain the whole method to your assistant
-
-The best setup is:
-
-1. give your AI assistant this repository URL
-2. ask it to read `README.md`
-3. ask it to choose the right skill
-4. ask it to install or follow that skill for the current task
+1. Read this `README.md`.
+2. Pick one skill for the current task.
+3. Either install that skill into Codex or ask your assistant to follow its `SKILL.md`.
 
 Repository URL:
 
@@ -45,105 +28,117 @@ Repository URL:
 https://github.com/rushairer/ai-product-skills
 ```
 
-If your assistant can install skills automatically, use the URL as the starting point.
+If your assistant supports repo-aware workflows, pointing it at this repository and asking it to read `README.md` first is usually enough.
 
-If your assistant cannot install skills automatically, use the URL as a method library and ask it to read the relevant files.
+## Choose The Right Skill
 
-## Fastest Way To Start
+### `product-ui-consistency-review-core`
 
-If you want the shortest path:
+Use for generic sibling-screen review.
 
-### Option A. Ask your AI assistant to handle it
+Best for:
 
-Copy this:
+- comparing related pages
+- finding shared page skeleton drift
+- deciding whether a difference is intentional or accidental
 
-```text
-Use this repository as your product-method toolkit:
-https://github.com/rushairer/ai-product-skills
+### `product-ui-consistency-review-specialized`
 
-First read README.md.
-Then tell me which skill best matches my task.
-Then either install that skill or use it as your working method for the rest of this task.
-```
+Use for domain-aware review in mature product families.
 
-### Option B. Install the beginner set for Codex
+Best for:
 
-From the repository root, run:
+- products with stable in-domain terminology
+- repeated page families with specialized meaning
+- cases where generic wording would flatten important distinctions
+
+### `product-flow-validation`
+
+Use for end-to-end path validation.
+
+Best for:
+
+- checking whether a user choice keeps the same meaning through navigation, runtime, persistence, recovery, history, and re-entry
+- verifying fixes after UI consistency or state-model work
+
+### `app-rules-architect`
+
+Use for extracting and maintaining durable product rules.
+
+Best for:
+
+- creating or updating `APP_RULES.md`, `FEATURE_RULES.md`, or similar files
+- separating reusable principles from app-specific behavior
+
+## Recommended Usage Order
+
+In most projects:
+
+1. Start with `product-ui-consistency-review-core`.
+2. Switch to `product-ui-consistency-review-specialized` only if product-specific terminology materially affects the review.
+3. Use `product-flow-validation` after consistency fixes when the remaining question is whether meaning survives the full path.
+4. Use `app-rules-architect` when the same review outcomes keep recurring and should become rules.
+
+## Fastest Setup For Codex
+
+Install the beginner set:
 
 ```bash
 ./scripts/install_for_codex.sh
 ```
 
-That installs the beginner set:
+That installs:
 
 - `product-ui-consistency-review-core`
 - `product-flow-validation`
 
-### Option C. Show prompt templates for any assistant
+Install every skill:
 
-From the repository root, run:
+```bash
+./scripts/install_for_codex.sh --all
+```
+
+Install one or more specific skills:
+
+```bash
+./scripts/install_for_codex.sh product-ui-consistency-review-core app-rules-architect
+```
+
+After installation, restart Codex.
+
+## Manual Installation
+
+If you prefer to copy folders yourself:
+
+```bash
+mkdir -p ~/.codex/skills
+cp -R skills/product-ui-consistency-review-core ~/.codex/skills/
+cp -R skills/product-flow-validation ~/.codex/skills/
+```
+
+For the full set:
+
+```bash
+cp -R skills/product-ui-consistency-review-specialized ~/.codex/skills/
+cp -R skills/app-rules-architect ~/.codex/skills/
+```
+
+## Using This Repo With Other Assistants
+
+If your assistant cannot install Codex skills natively, use this repository as a structured prompting toolkit:
+
+1. Point the assistant to this repository.
+2. Ask it to read `README.md`.
+3. Point it to exactly one relevant `SKILL.md`.
+4. Tell it to use that skill as the working method for the task.
+
+If you want ready-made prompts:
 
 ```bash
 ./scripts/print_bootstrap_prompts.sh
 ```
 
-That prints ready-to-copy prompts for:
-
-- Codex-style assistants
-- non-Codex coding assistants
-- flow validation
-- rules extraction
-
-## What This Repository Contains
-
-Current skills:
-
-- `product-ui-consistency-review-core`
-  - generic sibling-screen and repeated-block review
-- `product-ui-consistency-review-specialized`
-  - domain-aware review for mature product families
-- `product-flow-validation`
-  - end-to-end validation across entry, runtime, persistence, recovery, history, and replay
-- `app-rules-architect`
-  - extraction and maintenance of durable product rules
-
-Supporting material:
-
-- `templates/APP_RULES_TEMPLATE.md`
-- `docs/SKILL_BOUNDARIES.md`
-- `docs/RULES_AND_SKILLS_README.md`
-- `CONTRIBUTING.md`
-
-## Why This Repo Exists
-
-Many product teams repeatedly rediscover the same decisions:
-
-- what repeated cards should mean
-- when similar pages have drifted apart
-- whether a user choice actually survives navigation and recovery
-- when a decision should become an app rule instead of another one-off fix
-
-This repo packages those methods into reusable skills and promptable workflows, so teams can apply the same product reasoning in multiple apps.
-
-## Skill Map
-
-Use the skills in this order:
-
-1. `product-ui-consistency-review-core`
-   - start here for generic or unfamiliar projects
-2. `product-ui-consistency-review-specialized`
-   - use when the product already has stable domain terminology or page-family structure
-3. `product-flow-validation`
-   - use after consistency fixes when you need to verify that the same user choice keeps the same meaning through the full flow
-4. `app-rules-architect`
-   - use when recurring review outcomes should become durable product rules
-
-Short version:
-
-- Need to compare related screens -> `product-ui-consistency-review-core`
-- Need to review using product-specific concepts -> `product-ui-consistency-review-specialized`
-- Need to validate the whole user path -> `product-flow-validation`
-- Need to turn repeated decisions into rules -> `app-rules-architect`
+For more concrete examples, see [docs/USAGE_EXAMPLES.md](docs/USAGE_EXAMPLES.md).
 
 ## Repository Structure
 
@@ -154,300 +149,32 @@ skills/
   product-ui-consistency-review-core/
   product-ui-consistency-review-specialized/
 templates/
+  APP_RULES_TEMPLATE.md
 docs/
+  RULES_AND_SKILLS_README.md
+  SKILL_BOUNDARIES.md
+  USAGE_EXAMPLES.md
 ```
 
-## Installation
-
-## Easiest Setup For New Users
-
-If you do not have much terminal experience, follow these steps in order.
-
-### Step 1. Clone this repository
-
-Open Terminal and run:
-
-```bash
-git clone git@github.com:rushairer/ai-product-skills.git
-```
-
-If SSH is not configured, use:
-
-```bash
-git clone https://github.com/rushairer/ai-product-skills.git
-```
-
-Then enter the repository:
-
-```bash
-cd ai-product-skills
-```
-
-### Step 2. Create your Codex skills directory
-
-```bash
-mkdir -p ~/.codex/skills
-```
-
-### Step 3. Copy the skills you want to use
-
-If you want the safest beginner setup, copy these two first:
-
-```bash
-cp -R skills/product-ui-consistency-review-core ~/.codex/skills/
-cp -R skills/product-flow-validation ~/.codex/skills/
-```
-
-If `cp -R` does not work well in your environment, use:
-
-```bash
-rsync -a skills/product-ui-consistency-review-core/ ~/.codex/skills/product-ui-consistency-review-core/
-rsync -a skills/product-flow-validation/ ~/.codex/skills/product-flow-validation/
-```
-
-### Step 4. Restart Codex
-
-Close Codex and open it again.
-
-### Step 5. Start with one skill only
-
-For most people, the best first move is:
-
-1. install `product-ui-consistency-review-core`
-2. install `product-flow-validation`
-3. try one real review task
-
-Do not install everything and use everything at once unless you already know why you need each skill.
-
-### Even easier for Codex users
-
-Instead of copying folders one by one, you can run:
-
-```bash
-./scripts/install_for_codex.sh
-```
-
-Or install every skill:
-
-```bash
-./scripts/install_for_codex.sh --all
-```
-
-### For Codex
-
-Once the repository is cloned, copy one or more skill folders into your Codex skills directory.
-
-Example:
-
-```bash
-mkdir -p ~/.codex/skills
-cp -R skills/product-ui-consistency-review-core ~/.codex/skills/
-cp -R skills/product-flow-validation ~/.codex/skills/
-```
-
-Then restart Codex.
-
-Recommended install sets:
-
-### Minimal starter set
-
-```bash
-cp -R skills/product-ui-consistency-review-core ~/.codex/skills/
-cp -R skills/product-flow-validation ~/.codex/skills/
-```
-
-### Full product set
-
-```bash
-cp -R skills/product-ui-consistency-review-core ~/.codex/skills/
-cp -R skills/product-ui-consistency-review-specialized ~/.codex/skills/
-cp -R skills/product-flow-validation ~/.codex/skills/
-cp -R skills/app-rules-architect ~/.codex/skills/
-```
-
-### For other AI coding assistants
-
-If your assistant does not support native Codex skills, you can still use this repository as a structured prompting toolkit.
-
-Recommended setup:
-
-1. Clone this repository locally.
-2. Pick the one skill that matches your current job.
-3. Open that skill's `SKILL.md`.
-4. Ask your assistant to read `README.md` first, then the chosen `SKILL.md`.
-5. Tell it to follow that skill as the working method for the rest of the task.
-
-This works well with assistants such as:
-
-- OpenClaw
-- Claude Code
-- Codebuddy
-- other repo-aware coding agents
-
-The key requirement is simple:
-
-The assistant must be able to read local files and follow structured instructions.
-
-If you want ready-made prompts instead of writing your own, run:
-
-```bash
-./scripts/print_bootstrap_prompts.sh
-```
-
-## Quick Start For New Users
-
-If you are new to this repository, use this path:
-
-1. Start with `product-ui-consistency-review-core`.
-2. Add `product-flow-validation` once you start fixing state, recovery, or replay issues.
-3. Add `product-ui-consistency-review-specialized` only when your product already has stable family-specific language.
-4. Add `app-rules-architect` when the same review outcomes keep repeating and should become rules.
-
-## Non-Technical User Path
-
-If you are not technical and just want to get started:
-
-1. Clone the repository.
-2. Copy `product-ui-consistency-review-core` and `product-flow-validation` into `~/.codex/skills/`.
-3. Restart Codex.
-4. Open your project.
-5. Start with this exact prompt:
-
-```text
-Use product-ui-consistency-review-core to review these related screens.
-If you find fixes that change entry, runtime, recovery, or history meaning, follow with product-flow-validation.
-```
-
-That is enough to get value from this repository without learning every skill first.
-
-## Prompt Templates For Other Assistants
-
-If you are using a non-Codex assistant, copy one of these prompts and adjust the file paths.
-
-### Bootstrap prompt
-
-```text
-Use this repository as your working method:
-https://github.com/rushairer/ai-product-skills
-
-First read:
-1. README.md
-2. the specific SKILL.md I point you to
-
-Then:
-- summarize what that skill is for
-- tell me what inputs you need from my project
-- use that skill as the operating method for the rest of this task
-```
-
-### Generic consistency review prompt
-
-```text
-Read:
-- README.md
-- skills/product-ui-consistency-review-core/SKILL.md
-
-Then use that skill to review these related screens for structural, semantic, interaction, and visual drift.
-Report findings in the format required by the skill.
-```
-
-### Domain-aware review prompt
-
-```text
-Read:
-- README.md
-- skills/product-ui-consistency-review-specialized/SKILL.md
-
-This product already has established page-family language and repeated card roles.
-Use the specialized skill, not the generic one.
-```
-
-### End-to-end flow validation prompt
-
-```text
-Read:
-- README.md
-- skills/product-flow-validation/SKILL.md
-
-Validate this user path end-to-end:
-[replace with your real flow]
-
-Trace the user choice from entry surface through runtime, persistence, recovery, history, and re-entry.
-Tell me where the meaning first diverges.
-```
-
-### Rules extraction prompt
-
-```text
-Read:
-- README.md
-- skills/app-rules-architect/SKILL.md
-
-Use that skill to turn the repeated decisions in this project into a durable app-rules document.
-Separate reusable principles from app-specific rules.
-```
-
-## Quick Start
-
-### 1. Review sibling screens
-
-```text
-Use product-ui-consistency-review-core to compare the Settings, History, and Favorites screens for structure and interaction consistency.
-```
-
-### 2. Validate the real product flow
-
-```text
-Use product-flow-validation to validate this path end-to-end: Home recommendation -> session -> finish -> history -> replay.
-```
-
-### 3. Promote repeated decisions into rules
-
-```text
-Use app-rules-architect to turn our recent import/apply/save decisions into APP_RULES.md.
-```
-
-## How To Teach An AI Assistant This Repo Quickly
-
-Use this checklist when onboarding a new assistant to the repository:
-
-1. Tell it what kind of task you are doing:
-   - sibling-screen review
-   - end-to-end flow validation
-   - rules extraction
-2. Point it to `README.md`.
-3. Point it to exactly one skill first.
-4. Ask it to summarize the skill back to you before doing the work.
-5. Only after that give it the actual project files or repo paths.
-
-This reduces the chance that the assistant mixes multiple methods too early.
+## Documentation Map
+
+Use these documents by purpose:
+
+- [README.md](README.md): onboarding and skill routing
+- [docs/SKILL_BOUNDARIES.md](docs/SKILL_BOUNDARIES.md): when two skills seem similar
+- [docs/RULES_AND_SKILLS_README.md](docs/RULES_AND_SKILLS_README.md): how skills, templates, and rules fit together
+- [docs/USAGE_EXAMPLES.md](docs/USAGE_EXAMPLES.md): concrete prompting examples
+- [templates/APP_RULES_TEMPLATE.md](templates/APP_RULES_TEMPLATE.md): reusable starting point for app rules
+- [CONTRIBUTING.md](CONTRIBUTING.md): contribution expectations
 
 ## Helper Scripts
 
-This repository includes simple helper scripts:
-
-- `scripts/install_for_codex.sh`
-  - install the default or full skill set into `~/.codex/skills`
-- `scripts/print_bootstrap_prompts.sh`
-  - print ready-to-copy prompts for different assistant setups
-
-## Design Philosophy
-
-- Keep the generic method reusable.
-- Separate screen-family review from end-to-end flow validation.
-- Keep domain-specific language out of core skills unless it materially changes the review.
-- Prefer durable methods over one-off critique.
-- Turn repeated findings into reusable rules.
+- `scripts/install_for_codex.sh`: install the default, full, or custom skill set into `~/.codex/skills`
+- `scripts/print_bootstrap_prompts.sh`: print ready-to-copy prompts for common assistant setups
 
 ## Contributing
 
 See [CONTRIBUTING.md](CONTRIBUTING.md).
-
-Useful companion docs:
-
-- [docs/SKILL_BOUNDARIES.md](docs/SKILL_BOUNDARIES.md)
-- [docs/RULES_AND_SKILLS_README.md](docs/RULES_AND_SKILLS_README.md)
-- [docs/USAGE_EXAMPLES.md](docs/USAGE_EXAMPLES.md)
 
 ## License
 
