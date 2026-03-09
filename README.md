@@ -24,6 +24,76 @@ In short:
 
 This repository helps you get better product decisions out of your AI assistant with less re-explaining every time.
 
+## AI-First Setup
+
+The best setup is no longer:
+
+- manually read every file
+- manually copy folders first
+- manually explain the whole method to your assistant
+
+The best setup is:
+
+1. give your AI assistant this repository URL
+2. ask it to read `README.md`
+3. ask it to choose the right skill
+4. ask it to install or follow that skill for the current task
+
+Repository URL:
+
+```text
+https://github.com/rushairer/ai-product-skills
+```
+
+If your assistant can install skills automatically, use the URL as the starting point.
+
+If your assistant cannot install skills automatically, use the URL as a method library and ask it to read the relevant files.
+
+## Fastest Way To Start
+
+If you want the shortest path:
+
+### Option A. Ask your AI assistant to handle it
+
+Copy this:
+
+```text
+Use this repository as your product-method toolkit:
+https://github.com/rushairer/ai-product-skills
+
+First read README.md.
+Then tell me which skill best matches my task.
+Then either install that skill or use it as your working method for the rest of this task.
+```
+
+### Option B. Install the beginner set for Codex
+
+From the repository root, run:
+
+```bash
+./scripts/install_for_codex.sh
+```
+
+That installs the beginner set:
+
+- `product-ui-consistency-review-core`
+- `product-flow-validation`
+
+### Option C. Show prompt templates for any assistant
+
+From the repository root, run:
+
+```bash
+./scripts/print_bootstrap_prompts.sh
+```
+
+That prints ready-to-copy prompts for:
+
+- Codex-style assistants
+- non-Codex coding assistants
+- flow validation
+- rules extraction
+
 ## What This Repository Contains
 
 Current skills:
@@ -149,6 +219,20 @@ For most people, the best first move is:
 
 Do not install everything and use everything at once unless you already know why you need each skill.
 
+### Even easier for Codex users
+
+Instead of copying folders one by one, you can run:
+
+```bash
+./scripts/install_for_codex.sh
+```
+
+Or install every skill:
+
+```bash
+./scripts/install_for_codex.sh --all
+```
+
 ### For Codex
 
 Once the repository is cloned, copy one or more skill folders into your Codex skills directory.
@@ -204,6 +288,12 @@ The key requirement is simple:
 
 The assistant must be able to read local files and follow structured instructions.
 
+If you want ready-made prompts instead of writing your own, run:
+
+```bash
+./scripts/print_bootstrap_prompts.sh
+```
+
 ## Quick Start For New Users
 
 If you are new to this repository, use this path:
@@ -237,7 +327,8 @@ If you are using a non-Codex assistant, copy one of these prompts and adjust the
 ### Bootstrap prompt
 
 ```text
-I want you to use this repository as your working method.
+Use this repository as your working method:
+https://github.com/rushairer/ai-product-skills
 
 First read:
 1. README.md
@@ -330,6 +421,15 @@ Use this checklist when onboarding a new assistant to the repository:
 5. Only after that give it the actual project files or repo paths.
 
 This reduces the chance that the assistant mixes multiple methods too early.
+
+## Helper Scripts
+
+This repository includes simple helper scripts:
+
+- `scripts/install_for_codex.sh`
+  - install the default or full skill set into `~/.codex/skills`
+- `scripts/print_bootstrap_prompts.sh`
+  - print ready-to-copy prompts for different assistant setups
 
 ## Design Philosophy
 
