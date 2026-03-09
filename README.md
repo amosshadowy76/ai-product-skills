@@ -98,19 +98,19 @@ If you do not have much terminal experience, follow these steps in order.
 Open Terminal and run:
 
 ```bash
-git clone git@github.com:rushairer/codex-product-skills.git
+git clone git@github.com:rushairer/ai-product-skills.git
 ```
 
 If SSH is not configured, use:
 
 ```bash
-git clone https://github.com/rushairer/codex-product-skills.git
+git clone https://github.com/rushairer/ai-product-skills.git
 ```
 
 Then enter the repository:
 
 ```bash
-cd codex-product-skills
+cd ai-product-skills
 ```
 
 ### Step 2. Create your Codex skills directory
